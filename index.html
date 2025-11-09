@@ -1,32 +1,1885 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Feudal War 2 Manual</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 2em;
-      background: #f4f4f4;
-      color: #333;
-    }
-    h1 {
-      color: #2c3e50;
-    }
-    nav a {
-      margin-right: 1em;
-      text-decoration: none;
-      color: #2980b9;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feudal War 2 - Official User Manual</title>
+    <style>
+        :root {
+            --primary-color: #8B0000;
+            --secondary-color: #DAA520;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --border-color: #ddd;
+            --code-bg: #f4f4f4;
+            --link-color: #0066cc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #5a0000 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Navigation/TOC */
+        nav {
+            background: white;
+            border-bottom: 3px solid var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        nav h2 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Main Content */
+        main {
+            background: white;
+            margin: 2rem auto;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        section {
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+        }
+        
+        section:first-of-type {
+            padding-top: 0;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+        
+        h4 {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Image Placeholders */
+        .image-placeholder {
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            border: 2px dashed #999;
+            border-radius: 10px;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: #666;
+        }
+        
+        .image-placeholder.large {
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-placeholder.medium {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-placeholder.small {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-placeholder .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .image-placeholder .caption {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 0.5rem;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 5px;
+        }
+        
+        .info-box.tip {
+            background: #f1f8e9;
+            border-left-color: #8BC34A;
+        }
+        
+        .info-box.warning {
+            background: #fff3e0;
+            border-left-color: #FF9800;
+        }
+        
+        .info-box.important {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+        
+        .info-box h4 {
+            margin-top: 0;
+            color: inherit;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        
+        th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        /* Code blocks */
+        code {
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        /* Cards/Panels */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        
+        .card h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-text h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            main {
+                padding: 1.5rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background: #660000;
+            transform: translateY(-3px);
+        }
+    </style>
 </head>
 <body>
-  <h1>Welcome to the Feudal War 2 Manual</h1>
-  <nav>
-    <a href="setup.html">Setup</a>
-    <a href="gameplay.html">Gameplay</a>
-    <a href="strategy.html">Strategy</a>
-  </nav>
-  <p>This guide will walk you through the game setup, rules, and advanced tactics.</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="feudal-war-2-logo.png" alt="Feudal War 2 Logo">
+                </div>
+                <div class="header-text">
+                    <h1>Feudal War 2</h1>
+                    <p>Official User Manual & Strategy Guide</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <h2>Table of Contents</h2>
+                <ul>
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#game-setup">Game Setup</a></li>
+                    <li><a href="#gameplay">Gameplay</a></li>
+                    <li><a href="#deck-builder">Deck Builder</a></li>
+                    <li><a href="#strategy">Strategy Guide</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section id="introduction">
+            <h2>🎮 Introduction</h2>
+            
+            <div class="image-placeholder large">
+                <div class="icon">🎴</div>
+                <strong>Game Board Overview</strong>
+                <div class="caption">Image: game-board-overview.png - Full view of the Feudal War 2 game table showing all components</div>
+            </div>
+            
+            <p>Welcome to <strong>Feudal War 2</strong>, an immersive tactical card game set in the world of Second Life. Command armies, deploy legendary units, and outmaneuver your opponents in this strategic battle for dominance!</p>
+            
+            <p>Feudal War 2 combines classic card game mechanics with modern digital gameplay, featuring:</p>
+            
+            <ul>
+                <li><strong>40-card customizable decks</strong> with 5 unique color themes</li>
+                <li><strong>Strategic deck building</strong> - Offensive, Defensive, or Balanced playstyles</li>
+                <li><strong>Cloud-based custom decks</strong> via the Personal Deck Builder HUD</li>
+                <li><strong>AI opponent "Mr. Bones"</strong> with intelligent decision-making</li>
+                <li><strong>Multiplayer support</strong> for head-to-head battles</li>
+                <li><strong>Dynamic combat system</strong> with blocking, damage calculation, and card destruction</li>
+                <li><strong>Adjustable verbosity settings</strong> for personalized game experience</li>
+            </ul>
+            
+            <div class="info-box tip">
+                <h4>💡 Quick Start Tip</h4>
+                <p>New to Feudal War 2? Start by playing against Mr. Bones (the AI opponent) to learn the game mechanics before challenging other players!</p>
+            </div>
+        </section>
+
+        <!-- Getting Started -->
+        <section id="getting-started">
+            <h2>🚀 Getting Started</h2>
+            
+            <h3>System Requirements</h3>
+            <ul>
+                <li><strong>Platform:</strong> Second Life</li>
+                <li><strong>Viewer:</strong> Any official Second Life viewer (Firestorm recommended)</li>
+                <li><strong>Graphics:</strong> Medium or higher recommended for best experience</li>
+                <li><strong>Connection:</strong> Internet connection required for custom deck features</li>
+            </ul>
+            
+            <h3>Finding a Game Table</h3>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">🏛️</div>
+                <strong>Game Table Location</strong>
+                <div class="caption">Image: game-table-location.png - Feudal War 2 game tables in the game area</div>
+            </div>
+            
+            <ol>
+                <li>Locate a Feudal War 2 game table in Second Life</li>
+                <li>Right-click on the table and select "Sit"</li>
+                <li>You'll be seated at the game table with the HUD interface appearing automatically</li>
+                <li>Follow the on-screen prompts to begin your adventure!</li>
+            </ol>
+            
+            <div class="info-box">
+                <h4>ℹ️ Welcome Message</h4>
+                <p>When you first sit down, you'll receive a welcome message explaining the setup process. Read it carefully - it will guide you through deck creation and game start!</p>
+            </div>
+        </section>
+
+        <!-- Game Setup -->
+        <section id="game-setup">
+            <h2>⚙️ Game Setup</h2>
+            
+            <p>Before you can play, you need to set up your deck and choose your opponent. Follow these steps:</p>
+            
+            <h3>Step 1: Load a Deck</h3>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">🎴</div>
+                <strong>Load Deck HUD</strong>
+                <div class="caption">Image: load-deck-hud.png - The deck selection interface showing 5 color options and custom deck button</div>
+            </div>
+            
+            <p>You have two options for creating your deck:</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>Option 1: Random Generated Deck</h4>
+                    <p><strong>Choose a Color Theme:</strong></p>
+                    <ul>
+                        <li><strong>🔴 Red (Deck 1)</strong> - Fire and aggression</li>
+                        <li><strong>🔵 Blue (Deck 2)</strong> - Water and control</li>
+                        <li><strong>⚪ White (Deck 3)</strong> - Light and protection</li>
+                        <li><strong>⚫ Black (Deck 4)</strong> - Darkness and sacrifice</li>
+                        <li><strong>🟢 Green (Deck 5)</strong> - Nature and growth</li>
+                    </ul>
+                    <p>Each color has unique visual aesthetics but balanced gameplay.</p>
+                </div>
+                
+                <div class="card">
+                    <h4>Option 2: Custom Deck</h4>
+                    <p><strong>Use the Deck Builder HUD:</strong></p>
+                    <ul>
+                        <li>Click the <strong>🟠 CUSTOM DECK</strong> button</li>
+                        <li>Opens the Personal Deck Builder HUD</li>
+                        <li>Create your own 40-card deck</li>
+                        <li>Save to cloud for future use</li>
+                        <li>Full control over every card</li>
+                    </ul>
+                    <p><em>See the <a href="#deck-builder">Deck Builder section</a> for complete details.</em></p>
+                </div>
+            </div>
+            
+            <h3>Step 2: Set Your Gender</h3>
+            
+            <div class="image-placeholder small">
+                <div class="icon">👤</div>
+                <strong>Gender Selection</strong>
+                <div class="caption">Image: gender-selection.png - Male/Female seating style options</div>
+            </div>
+            
+            <p>Choose your preferred seating animation style (Male or Female). This affects how your avatar sits at the table but doesn't impact gameplay.</p>
+            
+            <h3>Step 3: Choose Deck Strategy (Random Decks Only)</h3>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">⚔️</div>
+                <strong>Strategy Selection HUD</strong>
+                <div class="caption">Image: strategy-selection-hud.png - Offensive, Defensive, and Balanced strategy options</div>
+            </div>
+            
+            <p>If you chose a random generated deck, you'll select your deck strategy:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Strategy</th>
+                        <th>Description</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>⚔️ Offensive</strong></td>
+                        <td>Fast & aggressive with attack-focused cards. No walls, all attackers. Aim to overwhelm opponents quickly with high damage output.</td>
+                        <td>Aggressive players who want to end games quickly</td>
+                    </tr>
+                    <tr>
+                        <td><strong>🛡️ Defensive</strong></td>
+                        <td>Walls and high-defense cards. Includes 0-attack units for blocking. Focus on survival and outlasting opponents.</td>
+                        <td>Patient players who prefer strategic defense</td>
+                    </tr>
+                    <tr>
+                        <td><strong>⚖️ Balanced</strong></td>
+                        <td>Mix of offensive and defensive cards. Versatile gameplay with adaptable tactics for any situation.</td>
+                        <td>Players who want flexibility and options</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box tip">
+                <h4>💡 Strategy Tip</h4>
+                <p><strong>Custom decks</strong> automatically use the Balanced strategy. You have full control over your deck composition when building custom decks!</p>
+            </div>
+            
+            <h3>Step 4: Choose Your Opponent</h3>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">🎲</div>
+                <strong>Waiting for Opponent Screen</strong>
+                <div class="caption">Image: waiting-for-opponent.png - Options to wait for human player or play against AI</div>
+            </div>
+            
+            <p>After your deck is generated, you have two options:</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>🤖 Play Computer (Mr. Bones)</h4>
+                    <p>Challenge our AI opponent for single-player gameplay:</p>
+                    <ul>
+                        <li>Intelligent blocking decisions</li>
+                        <li>Value-based card sacrifices</li>
+                        <li>Health-aware threat assessment</li>
+                        <li>Great for learning and practice</li>
+                    </ul>
+                    <p><strong>Click "PLAY COMPUTER"</strong> to begin!</p>
+                </div>
+                
+                <div class="card">
+                    <h4>👥 Human Opponent</h4>
+                    <p>Wait for another player to join for multiplayer:</p>
+                    <ul>
+                        <li>Both players must load decks</li>
+                        <li>Both players must be ready</li>
+                        <li>Face off in strategic combat</li>
+                        <li>Test your skills against real opponents</li>
+                    </ul>
+                    <p><strong>Wait for Player 2</strong> to join and set up their deck.</p>
+                </div>
+            </div>
+            
+            <h3>Step 5: Roll for Initiative</h3>
+            
+            <div class="image-placeholder small">
+                <div class="icon">🎲</div>
+                <strong>Roll Dice Interface</strong>
+                <div class="caption">Image: roll-dice-interface.png - Dice rolling to determine starting player</div>
+            </div>
+            
+            <p>Click <strong>ROLL DICE</strong> to determine who plays first. The dice roll is random and fair - may the odds be in your favor!</p>
+            
+            <div class="info-box">
+                <h4>ℹ️ Game Starting</h4>
+                <p>Once the dice are rolled, the game begins! Your starting hand of 7 cards will be dealt automatically, and the first player's turn will start.</p>
+            </div>
+        </section>
+
+        <!-- Gameplay -->
+        <section id="gameplay">
+            <h2>⚔️ Gameplay</h2>
+            
+            <h3>Game Objective</h3>
+            <p>Reduce your opponent's health from 20 to 0 by attacking with your units while defending against their attacks. The last player standing wins!</p>
+            
+            <h3>Turn Structure</h3>
+            
+            <div class="image-placeholder large">
+                <div class="icon">🔄</div>
+                <strong>Turn Phase Diagram</strong>
+                <div class="caption">Image: turn-phase-diagram.png - Visual flowchart showing all game phases</div>
+            </div>
+            
+            <p>Each turn consists of the following phases:</p>
+            
+            <h4>1. Rally Phase 🎺</h4>
+            <p>The start of your turn. You gain mana equal to your turn number (Turn 1 = +1 mana, Turn 2 = +2 mana, up to +10 mana per turn).</p>
+            
+            <div class="image-placeholder small">
+                <div class="icon">💎</div>
+                <strong>Mana Crystals Display</strong>
+                <div class="caption">Image: mana-display.png - Visual representation of available mana</div>
+            </div>
+            
+            <ul>
+                <li><strong>Mana accumulates</strong> - Save it for expensive units!</li>
+                <li><strong>All your units</strong> become ready (exhaustion removed)</li>
+                <li><strong>Click "DRAW CARD"</strong> to proceed to the next phase</li>
+            </ul>
+            
+            <h4>2. Draw Phase 🎴</h4>
+            <p>Draw one card from your deck to add to your hand.</p>
+            
+            <div class="image-placeholder small">
+                <div class="icon">✋</div>
+                <strong>Hand Display</strong>
+                <div class="caption">Image: hand-display.png - Player's hand showing 7 cards</div>
+            </div>
+            
+            <ul>
+                <li><strong>Starting hand:</strong> 7 cards</li>
+                <li><strong>Maximum hand size:</strong> 8 cards</li>
+                <li>If hand exceeds 8 cards, you must discard at end of turn</li>
+            </ul>
+            
+            <h4>3. Deploy Phase (First) 🎖️</h4>
+            <p>Deploy units from your hand to your reserves (battlefield).</p>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">⚔️</div>
+                <strong>Deploy Phase Interface</strong>
+                <div class="caption">Image: deploy-phase.png - Deploying units from hand to battlefield</div>
+            </div>
+            
+            <ul>
+                <li><strong>Click cards in your hand</strong> to deploy them</li>
+                <li>Each card costs mana equal to: <code>Attack + Defense - 1</code></li>
+                <li><strong>Maximum 7 units</strong> in your reserves at once</li>
+                <li>Newly deployed units are <strong>exhausted</strong> (cannot attack this turn)</li>
+                <li><strong>Click "END DEPLOY"</strong> when finished</li>
+            </ul>
+            
+            <div class="info-box important">
+                <h4>⚠️ Important</h4>
+                <p>If your reserves are full (7/7 units), the deploy phase is automatically skipped!</p>
+            </div>
+            
+            <h4>4. Attack Phase ⚔️</h4>
+            <p>Attack your opponent with ready units (units that aren't exhausted).</p>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">🗡️</div>
+                <strong>Attack Phase</strong>
+                <div class="caption">Image: attack-phase.png - Selecting units to attack</div>
+            </div>
+            
+            <ul>
+                <li><strong>Click "READY"</strong> on units to mark them as attackers</li>
+                <li>Units with 0 attack (walls) <strong>cannot attack</strong></li>
+                <li>Attacking exhausts the unit</li>
+                <li>You can attack <strong>multiple times</strong> with different units</li>
+                <li><strong>Click "END ATTACK"</strong> when finished</li>
+            </ul>
+            
+            <h4>5. Blocker Phase 🛡️</h4>
+            <p>If your opponent attacks, you may block with your units.</p>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">🛡️</div>
+                <strong>Blocking Interface</strong>
+                <div class="caption">Image: blocking-phase.png - Selecting blockers to defend against attack</div>
+            </div>
+            
+            <ul>
+                <li><strong>Click up to 2 units</strong> to block the attack</li>
+                <li><strong>Exhausted units CAN block</strong> (defense never exhausts)</li>
+                <li>Walls (0 attack) make excellent blockers</li>
+                <li><strong>Click "FINISHED"</strong> to resolve combat</li>
+            </ul>
+            
+            <h4>6. Combat Resolution ⚔️🛡️</h4>
+            <p>Combat is resolved automatically:</p>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">💥</div>
+                <strong>Combat Resolution</strong>
+                <div class="caption">Image: combat-resolution.png - Damage calculation and card destruction</div>
+            </div>
+            
+            <ul>
+                <li><strong>Attacker deals damage</strong> equal to its attack to blockers</li>
+                <li><strong>Blockers deal damage</strong> equal to their combined attack to the attacker</li>
+                <li>Units take damage equal to their defense</li>
+                <li><strong>Destroyed units</strong> are sent to the discard pile</li>
+                <li><strong>Unblocked damage</strong> hits the defending player's health</li>
+            </ul>
+            
+            <div class="info-box tip">
+                <h4>💡 Combat Example</h4>
+                <p>A 3/2 attacker attacks. Opponent blocks with 0/3 and 2/1 units:</p>
+                <ul>
+                    <li>Attacker (3 attack) deals 3 damage total to blockers</li>
+                    <li>Blockers (2 combined attack) deal 2 damage to attacker</li>
+                    <li>Attacker takes 2 damage (2 defense) - SURVIVES</li>
+                    <li>0/3 blocker takes 3 damage (3 defense) - DESTROYED</li>
+                    <li>2/1 blocker survives (no damage remaining)</li>
+                </ul>
+            </div>
+            
+            <h4>7. Deploy Phase (Second) 🎖️</h4>
+            <p>After combat, you get another chance to deploy units with any remaining mana. Same rules as the first deploy phase.</p>
+            
+            <h4>8. Discard Phase 🗑️</h4>
+            <p>If you have more than 8 cards in hand, you must discard down to 8.</p>
+            
+            <div class="image-placeholder small">
+                <div class="icon">🗑️</div>
+                <strong>Discard Interface</strong>
+                <div class="caption">Image: discard-phase.png - Selecting cards to discard from hand</div>
+            </div>
+            
+            <ul>
+                <li><strong>Click cards</strong> to inspect them</li>
+                <li><strong>Click "DISCARD"</strong> button to discard selected card</li>
+                <li>Repeat until hand size is 8 or fewer</li>
+            </ul>
+            
+            <h4>9. End Turn 🔄</h4>
+            <p>Turn automatically ends after discard phase. Your opponent's turn begins with their Rally Phase.</p>
+            
+            <h3>Winning the Game</h3>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">🏆</div>
+                <strong>Victory Screen</strong>
+                <div class="caption">Image: victory-screen.png - Victory celebration display</div>
+            </div>
+            
+            <p>You win by:</p>
+            <ul>
+                <li><strong>Reducing opponent to 0 health</strong> - Direct damage victory</li>
+                <li><strong>Opponent's deck runs out</strong> - Deck exhaustion victory</li>
+            </ul>
+            
+            <p>Victory triggers a celebration animation and you'll be prompted to play again or quit.</p>
+        </section>
+
+        <!-- Card Mechanics -->
+        <section id="card-mechanics">
+            <h2>🎴 Card Mechanics</h2>
+            
+            <h3>Understanding Cards</h3>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">🃏</div>
+                <strong>Card Anatomy</strong>
+                <div class="caption">Image: card-anatomy.png - Labeled card showing attack, defense, and cost</div>
+            </div>
+            
+            <p>Each unit card has three key stats:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stat</th>
+                        <th>Symbol</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Attack</strong></td>
+                        <td>⚔️</td>
+                        <td>Damage dealt during combat (0-6). Cards with 0 attack are "walls" and cannot attack.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Defense</strong></td>
+                        <td>🛡️</td>
+                        <td>Health/toughness of the unit (1-6). When defense reaches 0, the unit is destroyed.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost</strong></td>
+                        <td>💎</td>
+                        <td>Mana required to deploy (calculated as Attack + Defense - 1). Ranges from 0 to 11.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Special Cards</h3>
+            
+            <h4>Mythic Cards (6/6)</h4>
+            <p>The most powerful cards in the game:</p>
+            <ul>
+                <li><strong>Stats:</strong> 6 attack, 6 defense (cost 11)</li>
+                <li><strong>Limit:</strong> Only 1 per deck</li>
+                <li><strong>Power:</strong> Can attack and defend effectively</li>
+                <li><strong>Strategy:</strong> Save for critical moments!</li>
+            </ul>
+            
+            <h4>Walls (0 attack)</h4>
+            <p>Defensive units that excel at blocking:</p>
+            <ul>
+                <li><strong>Cannot attack</strong> (0 attack value)</li>
+                <li><strong>High defense</strong> for absorbing damage</li>
+                <li><strong>Ideal blockers</strong> - protect your health</li>
+                <li><strong>Cost-efficient</strong> defense</li>
+            </ul>
+            
+            <div class="image-placeholder small">
+                <div class="icon">🧱</div>
+                <strong>Wall Card Example</strong>
+                <div class="caption">Image: wall-card-example.png - Example of a 0/5 wall card</div>
+            </div>
+            
+            <h3>Card States</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>State</th>
+                        <th>Meaning</th>
+                        <th>Visual Indicator</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>In Hand</strong></td>
+                        <td>Card is ready to be deployed</td>
+                        <td>Displayed in your hand area</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ready</strong></td>
+                        <td>Unit can attack this turn</td>
+                        <td>Normal color, "READY" button available</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Exhausted</strong></td>
+                        <td>Unit cannot attack (just deployed or just attacked)</td>
+                        <td>Dimmed/grayed out, no "READY" button</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Attacking</strong></td>
+                        <td>Unit is currently attacking</td>
+                        <td>Highlighted/glowing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blocking</strong></td>
+                        <td>Unit is blocking an attack</td>
+                        <td>Highlighted/glowing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Destroyed</strong></td>
+                        <td>Unit's defense reached 0</td>
+                        <td>Sent to discard pile</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Combat Details</h3>
+            
+            <h4>Damage Calculation</h4>
+            <p>Combat follows these rules:</p>
+            
+            <ol>
+                <li><strong>Attacker's damage:</strong> Equal to its attack value</li>
+                <li><strong>Blocker's damage:</strong> Equal to combined attack of all blockers</li>
+                <li><strong>Damage is dealt simultaneously</strong></li>
+                <li><strong>Units are destroyed</strong> when damage ≥ defense</li>
+                <li><strong>Surviving damage:</strong> Units can be damaged but not destroyed (defense > damage)</li>
+            </ol>
+            
+            <div class="info-box warning">
+                <h4>⚠️ Blocking Strategy</h4>
+                <p>You can block with up to 2 units. Choose wisely:</p>
+                <ul>
+                    <li>Use walls to absorb damage without losing attackers</li>
+                    <li>Combine blockers to destroy the attacker</li>
+                    <li>Sometimes it's better to take damage than lose valuable units</li>
+                </ul>
+            </div>
+            
+            <h4>Unblocked Damage</h4>
+            <p>If you choose not to block (or cannot block), you take damage equal to the attacker's attack value directly to your health.</p>
+            
+            <div class="image-placeholder small">
+                <div class="icon">❤️</div>
+                <strong>Health Display</strong>
+                <div class="caption">Image: health-display.png - Life total counter showing current health</div>
+            </div>
+            
+            <h3>Advanced Mechanics</h3>
+            
+            <h4>Multiple Blockers</h4>
+            <p>When blocking with 2 units:</p>
+            <ul>
+                <li>Their defense values <strong>combine</strong> to absorb damage</li>
+                <li>Their attack values <strong>combine</strong> to damage the attacker</li>
+                <li>Damage is distributed (first blocker takes damage until destroyed, then second blocker)</li>
+            </ul>
+            
+            <h4>Multiple Attacks</h4>
+            <p>You can attack multiple times per turn:</p>
+            <ul>
+                <li>Attack with one unit → Resolve combat → Attack with another</li>
+                <li>Each attack is resolved separately</li>
+                <li>Opponent blocks each attack individually</li>
+                <li>Strategic advantage: Force opponent to use multiple blockers</li>
+            </ul>
+            
+            <h3>Verbosity Settings</h3>
+            
+            <div class="info-box tip">
+                <h4>💡 Control Your Experience</h4>
+                <p>Feudal War 2 lets you control how much text you see during gameplay!</p>
+            </div>
+            
+            <p>Adjust message verbosity with chat commands:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/1 verbosity silent</code></td>
+                        <td>No messages (minimal distraction)</td>
+                    </tr>
+                    <tr>
+                        <td><code>/1 verbosity normal</code></td>
+                        <td>Phase changes and major events only</td>
+                    </tr>
+                    <tr>
+                        <td><code>/1 verbosity all</code></td>
+                        <td>All messages (full detail)</td>
+                    </tr>
+                    <tr>
+                        <td><code>/1 help</code></td>
+                        <td>Show verbosity help</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p><strong>Note:</strong> Verbosity settings are per-player and reset when you stand up from the table.</p>
+        </section>
+
+        <!-- Deck Builder -->
+        <section id="deck-builder">
+            <h2>🎨 Personal Deck Builder HUD</h2>
+            
+            <p>The Personal Deck Builder HUD is a powerful tool that lets you create, manage, and analyze custom 40-card decks for tournament play. Your decks are saved to the cloud and accessible from any game table!</p>
+            
+            <div class="image-placeholder large">
+                <div class="icon">🎲</div>
+                <strong>Deck Builder HUD - All Faces</strong>
+                <div class="caption">Image: deck-builder-hud-all-faces.png - The rotating cube HUD showing all six interfaces</div>
+            </div>
+            
+            <h3>Getting the Deck Builder HUD</h3>
+            
+            <ol>
+                <li>Obtain the Deck Builder HUD object from the vendor or creator</li>
+                <li>Rez the HUD in-world or directly from inventory</li>
+                <li>Right-click and select <strong>"Add"</strong> or <strong>"Wear"</strong></li>
+                <li>The HUD will appear on your screen (usually upper right corner)</li>
+                <li>The Deck List screen appears automatically</li>
+            </ol>
+            
+            <div class="info-box">
+                <h4>ℹ️ Auto-Delete Feature</h4>
+                <p>If you rez the HUD in-world but don't attach it within 30 seconds, it will automatically delete itself to prevent clutter.</p>
+            </div>
+            
+            <h3>HUD Interfaces</h3>
+            
+            <p>The Deck Builder HUD is a rotating cube with 6 different faces (interfaces):</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>📋 Deck List (Default)</h4>
+                    <p>Main hub showing all your saved decks (up to 5). From here you can:</p>
+                    <ul>
+                        <li>View all saved decks</li>
+                        <li>Edit, Delete, Analyze, or Select decks</li>
+                        <li>Create new decks</li>
+                        <li>Exit to return to game</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>🆕 New Deck Wizard</h4>
+                    <p>Entry point for creating new decks:</p>
+                    <ul>
+                        <li><strong>CUSTOM</strong> - Build from scratch</li>
+                        <li><strong>IMPORT</strong> - Import from notecard</li>
+                        <li><strong>EXIT</strong> - Return to Deck List</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>✏️ Custom Deck Builder</h4>
+                    <p>Main editing interface for creating and modifying decks:</p>
+                    <ul>
+                        <li>Card preview panel (right)</li>
+                        <li>Deck display panel (left)</li>
+                        <li>Color and name selection</li>
+                        <li>Add/remove cards</li>
+                        <li>Save and export options</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>📥 Drag & Drop Import</h4>
+                    <p>Import decks from notecard CSV format:</p>
+                    <ul>
+                        <li>Drag notecard into HUD</li>
+                        <li>Rename to "newCards"</li>
+                        <li>Auto-imports and validates</li>
+                        <li>Opens in Custom Builder</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>📊 Deck Analysis</h4>
+                    <p>Strategic analysis and recommendations:</p>
+                    <ul>
+                        <li>Mana curve visualization</li>
+                        <li>Average stats calculation</li>
+                        <li>Deck archetype identification</li>
+                        <li>Strategic advice and warnings</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>⚠️ Confirmation Screen</h4>
+                    <p>Confirms destructive actions:</p>
+                    <ul>
+                        <li>Deck deletion confirmation</li>
+                        <li>Yes/No options</li>
+                        <li>Prevents accidental deletions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Creating Your First Custom Deck</h3>
+            
+            <div class="image-placeholder large">
+                <div class="icon">🎨</div>
+                <strong>Custom Deck Builder Interface</strong>
+                <div class="caption">Image: custom-deck-builder-interface.png - Full view of the deck building interface</div>
+            </div>
+            
+            <p><strong>Step-by-step walkthrough:</strong></p>
+            
+            <ol>
+                <li><strong>Click "NEW"</strong> on the Deck List screen</li>
+                <li><strong>Click "CUSTOM"</strong> on the New Deck Wizard</li>
+                <li><strong>Click the color icon</strong> (top left) to select a deck color</li>
+                <li><strong>Choose a color</strong> from the dialog (red, blue, white, black, or green)</li>
+                <li><strong>Click the deck title</strong> to name your deck</li>
+                <li><strong>Enter a deck name</strong> in the text box</li>
+                <li><strong>Use filter buttons</strong> (0-2, 3, 4, 5, etc.) to browse cards by cost</li>
+                <li><strong>Click cards in the preview panel</strong> to select them (yellow highlight)</li>
+                <li><strong>Adjust the +/- counter</strong> to set how many copies to add (1-4)</li>
+                <li><strong>Click "ADD"</strong> to add selected cards to your deck</li>
+                <li><strong>Repeat</strong> until you have 40 cards</li>
+                <li><strong>Click "SAVE"</strong> to save your deck to the cloud</li>
+            </ol>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">🎯</div>
+                <strong>Card Selection Process</strong>
+                <div class="caption">Image: card-selection-process.png - Selecting cards from preview panel with yellow highlights</div>
+            </div>
+            
+            <h3>Deck Builder Controls</h3>
+            
+            <h4>Card Preview Panel (Right Side)</h4>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">👁️</div>
+                <strong>Card Preview Panel</strong>
+                <div class="caption">Image: card-preview-panel-detail.png - Preview panel showing 6 cards with filter buttons</div>
+            </div>
+            
+            <ul>
+                <li><strong>Filter Buttons:</strong> Select cost range (0-2, 3, 4, 5, 6, 7, 8, 9-11)</li>
+                <li><strong>Card Display:</strong> 6 cards at a time matching filter</li>
+                <li><strong>Selection:</strong> Click to select (yellow highlight + glow)</li>
+                <li><strong>Multi-select:</strong> Select multiple cards before adding</li>
+            </ul>
+            
+            <h4>Deck Display Panel (Left Side)</h4>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">📚</div>
+                <strong>Deck Display Panel</strong>
+                <div class="caption">Image: deck-display-panel-detail.png - Deck panel showing current deck composition</div>
+            </div>
+            
+            <ul>
+                <li><strong>Current Deck:</strong> Shows all cards in your deck (sorted by cost)</li>
+                <li><strong>Card Count:</strong> Displays "X/40" cards</li>
+                <li><strong>Selection for Removal:</strong> Click cards (dark gray tint + glow)</li>
+                <li><strong>Validation Icon:</strong> ✓ (valid) or ✗ (invalid) in top left</li>
+            </ul>
+            
+            <h4>Control Buttons</h4>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Button</th>
+                        <th>Function</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>+/-</strong></td>
+                        <td>Adjust number of copies to add (0-4)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ADD</strong></td>
+                        <td>Add selected preview cards to deck</td>
+                    </tr>
+                    <tr>
+                        <td><strong>REMOVE</strong></td>
+                        <td>Remove selected deck cards</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DESELECT</strong></td>
+                        <td>Clear deck card selection</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SAVE</strong></td>
+                        <td>Save deck to cloud (validates first)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EXPORT</strong></td>
+                        <td>Output deck as CSV to chat</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ANALYZE</strong></td>
+                        <td>Open Deck Analysis screen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EXIT</strong></td>
+                        <td>Return to Deck List</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Deck Validation Rules</h3>
+            
+            <p>For a deck to be tournament-legal (valid ✓), it must meet these requirements:</p>
+            
+            <div class="image-placeholder small">
+                <div class="icon">✅</div>
+                <strong>Validation Icons</strong>
+                <div class="caption">Image: validation-icons-comparison.png - Valid (✓) vs Invalid (✗) deck icons</div>
+            </div>
+            
+            <ul>
+                <li><strong>Exactly 40 cards</strong> - No more, no less</li>
+                <li><strong>Maximum 4 copies</strong> of any card (except special cards)</li>
+                <li><strong>Maximum 1 copy</strong> of any 6/6 card (mythic)</li>
+                <li><strong>Maximum 1 copy</strong> of any cost-11 card</li>
+                <li><strong>Valid stats:</strong> Attack 0-6, Defense 1-6</li>
+                <li><strong>Correct cost:</strong> Must equal Attack + Defense - 1</li>
+            </ul>
+            
+            <div class="info-box warning">
+                <h4>⚠️ Saving Invalid Decks</h4>
+                <p>You CAN save decks that don't meet validation rules (for work-in-progress), but you'll receive a warning. Fix validation errors before using the deck in gameplay!</p>
+            </div>
+            
+            <h3>Deck Analysis</h3>
+            
+            <div class="image-placeholder large">
+                <div class="icon">📊</div>
+                <strong>Deck Analysis Screen</strong>
+                <div class="caption">Image: deck-analysis-full-screen.png - Complete deck analysis showing mana curve, stats, and strategic advice</div>
+            </div>
+            
+            <p>The Deck Analysis screen provides strategic feedback on your deck composition:</p>
+            
+            <h4>Mana Curve Analysis</h4>
+            <p>Color-coded breakdown of your card cost distribution:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cost Range</th>
+                        <th>Optimal Count</th>
+                        <th>Color Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>0-2 (Early Game)</strong></td>
+                        <td>6-10 cards</td>
+                        <td>🟢 Green = Good | 🟡 Yellow = Warning | 🔴 Red = Critical</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3-5 (Mid Game)</strong></td>
+                        <td>12-18 cards</td>
+                        <td>🟢 Green = Good | 🟡 Yellow = Warning | 🔴 Red = Critical</td>
+                    </tr>
+                    <tr>
+                        <td><strong>6-8 (Late Game)</strong></td>
+                        <td>8-14 cards</td>
+                        <td>🟢 Green = Good | 🟡 Yellow = Warning</td>
+                    </tr>
+                    <tr>
+                        <td><strong>9-11 (Very Late)</strong></td>
+                        <td>≤6 cards</td>
+                        <td>🟢 Green = Good | 🟡 Yellow = Warning | 🔴 Red = Too Expensive</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">📈</div>
+                <strong>Mana Curve Chart</strong>
+                <div class="caption">Image: mana-curve-chart.png - Color-coded mana curve showing card distribution</div>
+            </div>
+            
+            <h4>Deck Archetypes</h4>
+            <p>The analysis identifies your deck's strategic archetype:</p>
+            
+            <ul>
+                <li><strong>Aggro (Average cost &lt;3.5):</strong> Fast, aggressive decks focused on early game dominance</li>
+                <li><strong>Midrange (Average cost 4.5-5.5):</strong> Balanced decks that adapt to the game state</li>
+                <li><strong>Control (Average cost &gt;6.0):</strong> Late-game focused decks with powerful expensive cards</li>
+            </ul>
+            
+            <h4>Strategic Advice</h4>
+            <p>The analyzer provides recommendations based on your deck composition:</p>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">💭</div>
+                <strong>Strategic Advice Examples</strong>
+                <div class="caption">Image: strategic-advice-examples.png - Different advice messages for various deck types</div>
+            </div>
+            
+            <ul>
+                <li><strong>Green advice:</strong> Well-balanced, good to go!</li>
+                <li><strong>Yellow warnings:</strong> Potential weaknesses to address</li>
+                <li><strong>Red alerts:</strong> Critical problems that need fixing</li>
+            </ul>
+            
+            <h3>Editing Existing Decks</h3>
+            
+            <p>To modify a saved deck:</p>
+            
+            <ol>
+                <li>On the Deck List, click <strong>"EDIT"</strong> on the deck you want to modify</li>
+                <li>The Custom Deck Builder opens with your deck loaded</li>
+                <li>All 40 cards are displayed in the deck panel</li>
+                <li><strong>To remove cards:</strong> Click cards in deck panel (dark gray), then click "REMOVE"</li>
+                <li><strong>To add cards:</strong> Use preview panel, select cards, click "ADD"</li>
+                <li>Click <strong>"SAVE"</strong> to update your deck</li>
+            </ol>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">✏️</div>
+                <strong>Editing Deck - Cards Selected for Removal</strong>
+                <div class="caption">Image: editing-deck-remove-cards.png - Cards selected with dark gray tint for removal</div>
+            </div>
+            
+            <h3>Importing Decks from Notecard</h3>
+            
+            <p>You can import decks from a notecard using CSV format:</p>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">📄</div>
+                <strong>Drag & Drop Import Screen</strong>
+                <div class="caption">Image: drag-drop-import-screen.png - Import interface with instructions</div>
+            </div>
+            
+            <h4>Notecard Format</h4>
+            <pre><code>DeckName,Color,Power1,Defense1,Power2,Defense2,...,Power40,Defense40</code></pre>
+            
+            <p><strong>Example:</strong></p>
+            <pre><code>My Red Deck,red,0,1,0,1,1,1,1,1,1,2,1,2,2,1,2,1,2,2,2,2,3,1,3,1,1,4,1,4,2,3,2,3,4,1,4,1,1,5,1,5,2,4,2,4,3,3,3,3,5,1,5,1,2,5,2,5,3,4,3,4,4,3,4,3,5,2,5,2,3,5,3,5,4,4,4,4,5,3,5,3,6,6</code></pre>
+            
+            <p><strong>Requirements:</strong></p>
+            <ul>
+                <li>Total of 82 comma-separated values</li>
+                <li>First value: Deck name</li>
+                <li>Second value: Color (red, blue, white, black, or green)</li>
+                <li>Remaining 80 values: 40 pairs of Power,Defense</li>
+            </ul>
+            
+            <h4>Import Process</h4>
+            <ol>
+                <li>Create a notecard in your inventory with the deck data</li>
+                <li>Attach the Deck Builder HUD</li>
+                <li>Click <strong>"NEW"</strong> → <strong>"IMPORT"</strong></li>
+                <li>Drag the notecard from your inventory into the HUD contents</li>
+                <li>Rename the notecard to exactly: <strong>"newCards"</strong></li>
+                <li>The HUD auto-detects and imports the deck</li>
+                <li>The Custom Deck Builder opens with your imported deck</li>
+                <li>Review the deck and click <strong>"SAVE"</strong></li>
+            </ol>
+            
+            <div class="info-box important">
+                <h4>⚠️ Import Note</h4>
+                <p>The notecard is automatically deleted after import (success or failure). Make sure to keep a backup copy if needed!</p>
+            </div>
+            
+            <h3>Using Custom Decks in Gameplay</h3>
+            
+            <div class="image-placeholder large">
+                <div class="icon">🎮</div>
+                <strong>Selecting Custom Deck at Game Table</strong>
+                <div class="caption">Image: custom-deck-selection-gameplay.png - Player seated at game table with Deck Builder HUD open</div>
+            </div>
+            
+            <p><strong>To use a custom deck in a game:</strong></p>
+            
+            <ol>
+                <li><strong>Sit at a game table</strong></li>
+                <li>When prompted to load a deck, attach your <strong>Deck Builder HUD</strong></li>
+                <li>The Deck List appears showing all your saved decks</li>
+                <li>Click <strong>"SELECT"</strong> on the deck you want to use</li>
+                <li>The game loads your deck from the cloud</li>
+                <li>You'll see: <strong>"✅ Your custom deck has been loaded successfully!"</strong></li>
+                <li>Click <strong>"EXIT"</strong> on the HUD to return to the game</li>
+                <li>The game proceeds (strategy is automatically set to Balanced)</li>
+            </ol>
+            
+            <div class="info-box tip">
+                <h4>💡 Security Feature</h4>
+                <p>The game only accepts deck selections from <strong>seated players</strong>. This prevents cheating and ensures fair play. You must be sitting at the game table to select a deck!</p>
+            </div>
+            
+            <h3>Cloud Storage</h3>
+            
+            <p>Your decks are stored in Firebase Firestore, a secure cloud database:</p>
+            
+            <ul>
+                <li><strong>Maximum 5 decks</strong> per player</li>
+                <li><strong>Accessible anywhere</strong> - Your decks follow you to any game table</li>
+                <li><strong>Automatic sync</strong> - Changes save immediately</li>
+                <li><strong>Secure storage</strong> - Only you can access your decks</li>
+                <li><strong>Persistent</strong> - Decks are never lost (unless you delete them)</li>
+            </ul>
+            
+            <div class="info-box warning">
+                <h4>⚠️ Deck Limit</h4>
+                <p>You can only have 5 decks at a time. To create a new deck when at the limit, you must delete an old deck first.</p>
+            </div>
+            
+            <h3>Exporting Decks</h3>
+            
+            <p>Share your decks with other players using the EXPORT feature:</p>
+            
+            <ol>
+                <li>Load the deck in Custom Deck Builder</li>
+                <li>Click <strong>"EXPORT"</strong></li>
+                <li>The deck data is output to chat in CSV format</li>
+                <li>Copy the CSV line from your chat</li>
+                <li>Share it with other players</li>
+                <li>They can import it using the Drag & Drop Import screen</li>
+            </ol>
+        </section>
+
+        <!-- Strategy Guide -->
+        <section id="strategy">
+            <h2>🎯 Strategy Guide</h2>
+            
+            <h3>Basic Strategy Concepts</h3>
+            
+            <h4>Resource Management</h4>
+            <p>Mana is your most precious resource:</p>
+            
+            <ul>
+                <li><strong>Spend wisely:</strong> Don't deploy everything at once</li>
+                <li><strong>Save for threats:</strong> Keep mana for responding to opponent's plays</li>
+                <li><strong>Mana grows each turn:</strong> You'll have more resources in late game</li>
+                <li><strong>Card advantage matters:</strong> Trading 1 card to destroy 2 is excellent</li>
+            </ul>
+            
+            <h4>When to Attack</h4>
+            <ul>
+                <li><strong>Opponent has no blockers:</strong> Free damage!</li>
+                <li><strong>Favorable trades:</strong> Your unit survives, theirs doesn't</li>
+                <li><strong>Pressure opponent:</strong> Force them to block with valuable units</li>
+                <li><strong>Lethal opportunity:</strong> Finishing blow to win the game</li>
+            </ul>
+            
+            <h4>When to Block</h4>
+            <ul>
+                <li><strong>Survival:</strong> Block if the damage would kill you</li>
+                <li><strong>Favorable trades:</strong> Kill their attacker with your blocker</li>
+                <li><strong>Protect life total:</strong> Health is a resource - don't waste it</li>
+                <li><strong>Use walls effectively:</strong> Walls are great blockers (high defense, 0 attack)</li>
+            </ul>
+            
+            <h3>Deck Building Strategy</h3>
+            
+            <h4>Mana Curve Principles</h4>
+            
+            <div class="image-placeholder medium">
+                <div class="icon">📈</div>
+                <strong>Ideal Mana Curve</strong>
+                <div class="caption">Image: ideal-mana-curve.png - Graph showing optimal card distribution by cost</div>
+            </div>
+            
+            <p><strong>The mana curve</strong> is the distribution of card costs in your deck. A good curve ensures you have plays at every stage of the game:</p>
+            
+            <ul>
+                <li><strong>Early game (0-2 cost):</strong> 6-10 cards - Ensure you have plays in early turns</li>
+                <li><strong>Mid game (3-5 cost):</strong> 12-18 cards - The core of most decks</li>
+                <li><strong>Late game (6-8 cost):</strong> 8-14 cards - Powerful finishers</li>
+                <li><strong>Very late (9-11 cost):</strong> ≤6 cards - Don't include too many expensive cards</li>
+            </ul>
+            
+            <h4>Deck Archetypes</h4>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>⚡ Aggro (Rush)</h4>
+                    <p><strong>Average Cost:</strong> &lt;3.5</p>
+                    <p><strong>Strategy:</strong> Overwhelm opponent quickly with cheap, efficient units.</p>
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>Fast wins</li>
+                        <li>Strong early game</li>
+                        <li>High pressure</li>
+                    </ul>
+                    <p><strong>Weaknesses:</strong></p>
+                    <ul>
+                        <li>Runs out of steam</li>
+                        <li>Weak late game</li>
+                        <li>Vulnerable to walls</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>⚖️ Midrange</h4>
+                    <p><strong>Average Cost:</strong> 4.5-5.5</p>
+                    <p><strong>Strategy:</strong> Balanced approach with efficient units at all stages.</p>
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>Versatile</li>
+                        <li>Adapts to opponent</li>
+                        <li>Consistent plays</li>
+                    </ul>
+                    <p><strong>Weaknesses:</strong></p>
+                    <ul>
+                        <li>No clear advantage</li>
+                        <li>Can be outpaced by aggro</li>
+                        <li>Can be outvalued by control</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h4>🏰 Control (Late Game)</h4>
+                    <p><strong>Average Cost:</strong> &gt;6.0</p>
+                    <p><strong>Strategy:</strong> Survive early game, dominate with powerful late-game cards.</p>
+                    <p><strong>Strengths:</strong></p>
+                    <ul>
+                        <li>Powerful cards</li>
+                        <li>Strong late game</li>
+                        <li>Card quality advantage</li>
+                    </ul>
+                    <p><strong>Weaknesses:</strong></p>
+                    <ul>
+                        <li>Slow start</li>
+                        <li>Vulnerable early</li>
+                        <li>Needs walls/blockers</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Advanced Tips</h3>
+            
+            <h4>Card Economy</h4>
+            <p>Value your cards based on their stats:</p>
+            <ul>
+                <li><strong>Card value = Attack + Defense</strong> (approximately)</li>
+                <li>Don't sacrifice a 5/5 (value 10) to kill a 1/1 (value 2)</li>
+                <li>Look for favorable trades where you gain more value than you lose</li>
+                <li>Walls have high defensive value but low attacking value</li>
+            </ul>
+            
+            <h4>Tempo vs Value</h4>
+            <ul>
+                <li><strong>Tempo:</strong> Speed and pressure (aggro decks prioritize this)</li>
+                <li><strong>Value:</strong> Card quality and efficiency (control decks prioritize this)</li>
+                <li>Balance both to create a strong deck</li>
+            </ul>
+            
+            <h4>The Mythic Card</h4>
+            <p>Every deck has exactly one 6/6 mythic card:</p>
+            <ul>
+                <li><strong>Most powerful unit</strong> in your deck</li>
+                <li><strong>High cost (11 mana)</strong> - Save mana for it</li>
+                <li><strong>Game-winning potential</strong> - Can attack and block effectively</li>
+                <li><strong>Don't waste it:</strong> Use strategically for maximum impact</li>
+            </ul>
+            
+            <h3>Playing Against Mr. Bones (AI)</h3>
+            
+            <div class="image-placeholder small">
+                <div class="icon">🤖</div>
+                <strong>Mr. Bones - AI Opponent</strong>
+                <div class="caption">Image: mr-bones-ai-opponent.png - The AI opponent character</div>
+            </div>
+            
+            <p>Mr. Bones is an intelligent AI opponent with sophisticated decision-making:</p>
+            
+            <h4>AI Behavior</h4>
+            <ul>
+                <li><strong>Survival priority:</strong> Will always block if it would die</li>
+                <li><strong>Health-aware:</strong> Blocks more aggressively at low health</li>
+                <li><strong>Value-based trades:</strong> Won't sacrifice expensive units for cheap attackers</li>
+                <li><strong>Attacker elimination:</strong> Prefers to kill attackers when economical</li>
+                <li><strong>Cost optimization:</strong> Uses cheapest blocking combination</li>
+            </ul>
+            
+            <h4>Exploiting AI Weaknesses</h4>
+            <ul>
+                <li><strong>Small repeated attacks:</strong> AI may let small damage through to preserve units</li>
+                <li><strong>Cheap attackers:</strong> AI won't waste valuable blockers on cheap threats</li>
+                <li><strong>Predictable blocking:</strong> AI follows mathematical optimization</li>
+            </ul>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting">
+            <h2>🔧 Troubleshooting</h2>
+            
+            <h3>Common Issues</h3>
+            
+            <h4>Problem: Cards not appearing in hand</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Ensure you clicked "DRAW CARD" during the draw phase</li>
+                <li>Check that your deck was properly loaded (look for confirmation message)</li>
+                <li>If using custom deck, ensure it validated successfully</li>
+                <li>Try standing up and sitting down again to reset the game</li>
+            </ul>
+            
+            <h4>Problem: Can't deploy cards</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Check you have enough mana (shown in mana crystal display)</li>
+                <li>Verify reserves aren't full (maximum 7 units)</li>
+                <li>Ensure it's your turn (check turn indicator)</li>
+                <li>Make sure you're in the Deploy Phase</li>
+            </ul>
+            
+            <h4>Problem: Can't attack with units</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Units must be <strong>ready</strong> (not exhausted) to attack</li>
+                <li>Newly deployed units cannot attack until next turn</li>
+                <li>Units with 0 attack (walls) cannot attack</li>
+                <li>Ensure it's the Attack Phase</li>
+            </ul>
+            
+            <h4>Problem: Deck Builder HUD not appearing</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Right-click the HUD and select "Detach"</li>
+                <li>Right-click again and select "Wear"</li>
+                <li>Ensure it's attached to the correct attachment point</li>
+                <li>Check that HUD hasn't auto-deleted (attach within 30 seconds of rezzing)</li>
+            </ul>
+            
+            <h4>Problem: Custom deck won't load</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Ensure you're <strong>seated at the game table</strong> (security requirement)</li>
+                <li>Check your internet connection (cloud deck fetching requires connectivity)</li>
+                <li>Verify deck is valid (check for ✓ on Deck List)</li>
+                <li>Try clicking SELECT again after a few seconds</li>
+            </ul>
+            
+            <h4>Problem: "Max 5 decks reached" error</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>You can only have 5 decks stored at a time</li>
+                <li>Delete an old deck before creating a new one</li>
+                <li>Use EXPORT to save deck data before deleting if you want to keep a backup</li>
+            </ul>
+            
+            <h4>Problem: Game messages are overwhelming</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Use verbosity commands to control message amount</li>
+                <li>Type <code>/1 verbosity normal</code> for less text</li>
+                <li>Type <code>/1 verbosity silent</code> for minimal messages</li>
+                <li>Type <code>/1 help</code> to see all verbosity options</li>
+            </ul>
+            
+            <h3>Deck Builder Issues</h3>
+            
+            <h4>Problem: Cards showing as gray boxes</h4>
+            <p><strong>Solution:</strong> Card textures are missing from HUD inventory. Contact the HUD creator or administrator.</p>
+            
+            <h4>Problem: Can't save deck</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Ensure deck has a name (not default prompt text)</li>
+                <li>Ensure color is selected</li>
+                <li>Check internet connection</li>
+                <li>Verify you haven't reached 5-deck limit</li>
+            </ul>
+            
+            <h4>Problem: Deck validation failed</h4>
+            <p><strong>Solution:</strong></p>
+            <ul>
+                <li>Click <strong>"ANALYZE"</strong> to see specific problems</li>
+                <li>Check deck has exactly 40 cards</li>
+                <li>Verify no card appears more than 4 times (except mythic/cost-11)</li>
+                <li>Ensure only one 6/6 card in deck</li>
+            </ul>
+            
+            <h3>Performance Tips</h3>
+            
+            <ul>
+                <li><strong>Detach HUD when not in use</strong> - Saves region resources</li>
+                <li><strong>Don't spam buttons</strong> - Wait for confirmations before clicking again</li>
+                <li><strong>Use ANALYZE before gameplay</strong> - Catch deck problems early</li>
+                <li><strong>Keep graphics settings reasonable</strong> - Medium or higher for best experience</li>
+            </ul>
+            
+            <h3>Getting Help</h3>
+            
+            <p>If you encounter issues not covered here:</p>
+            
+            <ul>
+                <li>Check the in-game help (click HELP button)</li>
+                <li>Contact the game administrator or owner</li>
+                <li>Visit the official Feudal War community</li>
+                <li>Report bugs to the development team</li>
+            </ul>
+        </section>
+
+        <!-- Quick Reference -->
+        <section id="quick-reference">
+            <h2>📖 Quick Reference</h2>
+            
+            <h3>Verbosity Commands</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Command</th>
+                        <th>Effect</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/1 help</code></td>
+                        <td>Show verbosity help</td>
+                    </tr>
+                    <tr>
+                        <td><code>/1 verbosity silent</code></td>
+                        <td>No messages</td>
+                    </tr>
+                    <tr>
+                        <td><code>/1 verbosity normal</code></td>
+                        <td>Phase changes only</td>
+                    </tr>
+                    <tr>
+                        <td><code>/1 verbosity all</code></td>
+                        <td>All messages (default)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Card Stats</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stat</th>
+                        <th>Range</th>
+                        <th>Formula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Attack</td>
+                        <td>0-6</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Defense</td>
+                        <td>1-6</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Cost</td>
+                        <td>0-11</td>
+                        <td>Attack + Defense - 1</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Game Limits</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Limit</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Starting Health</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Starting Hand</td>
+                        <td>7 cards</td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Hand Size</td>
+                        <td>8 cards</td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Reserves</td>
+                        <td>7 units</td>
+                    </tr>
+                    <tr>
+                        <td>Deck Size</td>
+                        <td>40 cards</td>
+                    </tr>
+                    <tr>
+                        <td>Maximum Blockers</td>
+                        <td>2 units per attack</td>
+                    </tr>
+                    <tr>
+                        <td>Saved Decks</td>
+                        <td>5 per player</td>
+                    </tr>
+                    <tr>
+                        <td>Card Copies (Normal)</td>
+                        <td>4 per deck</td>
+                    </tr>
+                    <tr>
+                        <td>Card Copies (Mythic 6/6)</td>
+                        <td>1 per deck</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Color Themes</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Color</th>
+                        <th>Theme</th>
+                        <th>Aesthetic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🔴 Red</td>
+                        <td>Fire & Aggression</td>
+                        <td>Flames, fire elementals, burning</td>
+                    </tr>
+                    <tr>
+                        <td>🔵 Blue</td>
+                        <td>Water & Control</td>
+                        <td>Ocean, waves, water creatures</td>
+                    </tr>
+                    <tr>
+                        <td>⚪ White</td>
+                        <td>Light & Protection</td>
+                        <td>Holy light, angels, purity</td>
+                    </tr>
+                    <tr>
+                        <td>⚫ Black</td>
+                        <td>Darkness & Sacrifice</td>
+                        <td>Shadows, undead, corruption</td>
+                    </tr>
+                    <tr>
+                        <td>🟢 Green</td>
+                        <td>Nature & Growth</td>
+                        <td>Forests, beasts, plants</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Credits -->
+        <section id="credits">
+            <h2>🎖️ Credits</h2>
+            
+            <p><strong>Game Design & Development:</strong> feudalism-dev</p>
+            <p><strong>Version:</strong> 1.0.3 (with Custom Deck Integration)</p>
+            <p><strong>Platform:</strong> Second Life (Linden Lab)</p>
+            <p><strong>Cloud Backend:</strong> Firebase Firestore</p>
+            
+            <h3>Special Thanks</h3>
+            <ul>
+                <li>The Second Life community for testing and feedback</li>
+                <li>All players who helped refine game balance</li>
+                <li>Contributors to the LSL scripting community</li>
+            </ul>
+            
+            <h3>Version History</h3>
+            <ul>
+                <li><strong>v1.0.3:</strong> Custom Deck Integration, AI improvements, Verbosity system, Guidance messages</li>
+                <li><strong>v1.0.2:</strong> Victory condition fixes, Smart AI blocking, Health-aware decisions</li>
+                <li><strong>v1.0.1:</strong> Hotfix for combat resolution and turn flow</li>
+                <li><strong>v1.0.0:</strong> Initial public release</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Feudal War 2</strong> - A Strategic Card Game Experience</p>
+            <p>&copy; 2025 feudalism-dev. All rights reserved.</p>
+            <p><a href="https://github.com/feudalism-dev/feudal-war-manuals" target="_blank">GitHub Repository</a></p>
+            <p><em>Enjoy the battle, and may victory be yours!</em></p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top">↑</a>
 </body>
 </html>
